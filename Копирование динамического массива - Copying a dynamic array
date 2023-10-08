@@ -1,0 +1,60 @@
+#include<iostream>
+using namespace std;
+
+
+/* Копирование SecondArray в FirstArray. */
+/* Copying SecondArray to FirstArray. */
+
+int FillArray(int *const arr, const int size)
+{
+    for (int i = 0; i < size; i++)
+	{
+		arr[i] = rand() % 20;
+	}
+	return 0;
+}
+
+int ShowArray(const int *const arr, const int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << arr[i] << "\t";
+	}
+	cout << endl;
+	return 0;
+}
+
+int main()
+{
+	int size = 10;
+	int *FirstArray = new int[size];
+	int *SecondArray = new int[size];
+
+	FillArray(FirstArray, size);
+	FillArray(SecondArray, size);
+
+	cout << "FirstArray" << "\t";
+	ShowArray(FirstArray, size);
+	cout << "SecondArray" << "\t";
+	ShowArray(SecondArray, size);
+
+	delete[] FirstArray;
+
+	FirstArray = new int[size];
+	for (int i = 0; i < size; i++)
+	{
+		FirstArray[i] = SecondArray[i];
+	}
+
+	cout << endl;
+
+	cout << "FirstArray" << "\t";
+	ShowArray(FirstArray, size);
+	cout << "SecondArray" << "\t";
+	ShowArray(SecondArray, size);
+
+	delete[] SecondArray;
+	delete[] FirstArray;
+
+	return 0;
+}
