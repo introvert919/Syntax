@@ -1,0 +1,22 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+/* Меняет значение в строке.*/
+/* Changes the value in the string.*/
+
+int main()
+{
+	string a = "Hello";
+
+	char *b = const_cast <char*> (a.c_str());
+
+	cout << b << endl;
+	
+	b[1] = b[4];
+	cout << b;
+	cout << endl;
+	cout << a << endl;
+	
+	return 0;
+}
